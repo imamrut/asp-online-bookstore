@@ -1,0 +1,25 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>
+                <!-- 
+                    '[src]' is enclosed with square brackets, to make use of 'angular property binding' to bind images. 
+                    So, anytime you see a square barackets enclosed in an attribute, means we are using 'property binding'.
+                    In 'property binding' we are not using '{}' rather we are using variable. Here the variable is 'book.imageUrl'.
+                -->
+                <img [src] = "book.imageUrl" height = "50" />
+            </td>
+            <td>{{ book.name }}</td>
+            <td>{{ book.description }}</td>
+            <td>{{ book.unitPrice | currency: "INR" }}</td>
+        </tr>
+    </tbody>
+</table>
