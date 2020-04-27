@@ -26,6 +26,15 @@ public class RepositoryConfig implements RepositoryRestConfigurer{
 				.map(Type :: getJavaType)
 				.toArray(Class[] :: new));
 		
+		/* This is the process to apply CORS logic to all the repositories, 
+		 * instead applying '@CrossOrigin' to all the repositories.
+		 * 'addMapping' method with '/**' means to add the mapping for all the requests.
+		 * 'allowedOrigins' method with 'http://localhost:4200' is specyfing host name, which is in here
+		 * we need 'localhost 4200'. Similarly we add multiple hosts/origins using comma(,) seperator in sting */
+		config.getCorsRegistry()
+				.addMapping("/**")
+				.allowedOrigins("http://localhost:4200");
+		
 	}
 
 }
