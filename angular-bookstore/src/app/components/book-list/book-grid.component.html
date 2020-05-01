@@ -26,6 +26,11 @@
                     </div>
                 </div>
             </div>
+            <!-- '?', is safe navigation operator. '?', checks if 'books' is null or undefined, 
+            if not then it will make use of 'length' -->
+            <div *ngIf="books?.length == 0" class="col-md-12 alert alert-warning mt-3">
+                No books found
+            </div>
 
         </div>
 

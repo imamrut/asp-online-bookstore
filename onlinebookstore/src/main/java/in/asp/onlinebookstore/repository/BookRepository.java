@@ -18,5 +18,8 @@ public interface BookRepository extends JpaRepository<Book, Long>{
 	// To change the segment of the URL under which this query method is exposed, you can use the '@RestResource' annotation.
 	@RestResource(path = "categoryId")
 	Page<Book> findByCategoryId(@Param("id") Long id, Pageable pageable);
+	
+	@RestResource(path = "searchbykeyword")
+	Page<Book> findByNameContaining(@Param("name") String keyword, Pageable pageable);
 
 }
